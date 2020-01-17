@@ -8,7 +8,7 @@ class DownloadDBHelper : SQLiteOpenHelper {
 
     companion object {
         const val DOWNLOAD_DB: String = "download_db"
-        const val DB_VERSION : Int = 1;
+        const val DB_VERSION: Int = 1;
 
         const val sql =
             "create table if not exists " + DOWNLOAD_DB +
@@ -17,7 +17,7 @@ class DownloadDBHelper : SQLiteOpenHelper {
                     DBFields.DL_URL + " TEXT unique, " +
                     DBFields.DL_PROGRESS + " TEXT, " +
                     DBFields.DL_SIZE + " LONG, " +
-                    DBFields.DL_PATH + " TEXT, "  +
+                    DBFields.DL_PATH + " TEXT, " +
                     DBFields.DL_STATUS + " INTEGER" + ")"
     }
 
@@ -25,8 +25,7 @@ class DownloadDBHelper : SQLiteOpenHelper {
     private var context: Context
 
 
-
-    constructor(context: Context) {
+    constructor(context: Context) : super(context, DOWNLOAD_DB, null, DB_VERSION) {
         this.context = context
     }
 
