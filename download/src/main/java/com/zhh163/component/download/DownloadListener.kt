@@ -22,4 +22,9 @@ interface DownloadListener {
      */
     fun onError(url: String, errorCode: Int, errorMsg: String)
 
+
+    /**
+     * 状态变化
+     */
+    fun onStatusChange(status: Int)
 }

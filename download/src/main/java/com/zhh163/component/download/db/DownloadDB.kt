@@ -3,10 +3,13 @@ package com.zhh163.component.download.db
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 
 class DownloadDBHelper : SQLiteOpenHelper {
 
     companion object {
+        const val TAG = "DownloadDBHelper"
+
         const val DOWNLOAD_DB: String = "download_db"
         const val DB_VERSION: Int = 1;
 
@@ -30,18 +33,20 @@ class DownloadDBHelper : SQLiteOpenHelper {
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //To change body of created functions use File | Settings | File Templates.
+        db!!.execSQL(sql)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //To change body of created functions use File | Settings | File Templates.
+        Log.i(TAG, "oldVersion = $oldVersion newVersion = $newVersion")
     }
-
 
 }
 
 
 class DBFields {
+
     companion object {
         const val ID: String = "_id" //唯一标志服
         const val DL_URL: String = "DLUrl" //下载的URL
